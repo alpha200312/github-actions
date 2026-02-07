@@ -1,0 +1,13 @@
+---
+
+name: Sample Workflow
+run-name: Sample Workflow Run
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
