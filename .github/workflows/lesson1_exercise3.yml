@@ -1,33 +1,9 @@
-# ---
-
-# name: node workflow
-# run-name: node setup 
-
-# on: 
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
-#   workflow_dispatch:
-
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: node check
-#         uses: actions/setup-node@v4
-#         run: node -e "console.log("done node test")"
 ---
 
-name: Sample Workflow 2
-run-name: Sample Workflow Run 2
+name: node workflow
+run-name: node setup 
 
-on:
+on: 
   push:
     branches:
       - main
@@ -37,22 +13,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: run single command
-        run: echo "Hello, World!"
-      
-      - name: run multiple commands
-        run: |
-          echo "This is a sample workflow."
-          echo "It runs on push, pull request, and manual trigger."
-          echo "You can customize it as needed."
-
-  nodes:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -62,9 +23,50 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: console log
         run: node -e "console.log('Running tests with Node.js version ${{ matrix.node-version }}')"
+# ---
+
+# name: Sample Workflow 2
+# run-name: Sample Workflow Run 2
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: run single command
+#         run: echo "Hello, World!"
+      
+#       - name: run multiple commands
+#         run: |
+#           echo "This is a sample workflow."
+#           echo "It runs on push, pull request, and manual trigger."
+#           echo "You can customize it as needed."
+
+#   nodes:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+
+#       - name: console log
+#         run: node -e "console.log('Running tests with Node.js version ${{ matrix.node-version }}')"
 
       
       
