@@ -1,0 +1,24 @@
+---
+
+name: node workflow
+run-name: node setup 
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: node check
+        uses: actions/setup-node@v4
+        run: node -e "console.log("done node test")"
