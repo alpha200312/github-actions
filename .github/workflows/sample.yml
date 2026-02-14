@@ -1,0 +1,29 @@
+---
+
+name: Sample Workflow
+run-name: Sample Workflow Run
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: run single command
+        run: echo "Hello, World!"
+      
+      - name: run multiple commands
+        run: |
+          echo "This is a sample workflow."
+          echo "It runs on push, pull request, and manual trigger."
+          echo "You can customize it as needed."
