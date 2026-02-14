@@ -24,8 +24,8 @@
 #         run: node -e "console.log("done node test")"
 ---
 
-name: Sample Workflow
-run-name: Sample Workflow Run
+name: Sample Workflow 2
+run-name: Sample Workflow Run 2
 
 on:
   push:
