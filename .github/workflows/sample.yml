@@ -27,3 +27,20 @@ jobs:
           echo "This is a sample workflow."
           echo "It runs on push, pull request, and manual trigger."
           echo "You can customize it as needed."
+
+  nodes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: console log
+        run: node -e "console.log('Running tests with Node.js version ${{ matrix.node-version }}')"
+
+      
+      
